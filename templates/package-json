@@ -29,7 +29,9 @@
       "rollup --config build/rollup.config.js --format es --file dist/{{componentName}}.esm.js",
     "build:unpkg":
       "rollup --config build/rollup.config.js --format iife --file dist/{{componentName}}.min.js",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick --staged",
+    "stdver": "standard-version -m '[skip ci] chore(release): v%s'",
+    "release": "gren release --override"
   },
 
   "dependencies": {},
@@ -39,6 +41,7 @@
     "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.5",
+    "github-release-notes": "^0.17.0",
     "glob": "^7.1.3",
     "husky": "^0.14.3",
     "minimist": "^1.2.0",
@@ -49,6 +52,7 @@
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-terser": "^4.0.4",
     "rollup-plugin-vue": "^4.7.2",
+    "standard-version": "^6.0.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue": "^2.5.16",
