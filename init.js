@@ -5,6 +5,7 @@ const FileActions = require('./lib/fileActions')
 const kleur = require('kleur')
 const path = require('path')
 const readline = require('readline-sync')
+const fs = require('fs')
 
 const argv = process.argv.slice(2)
 
@@ -35,5 +36,7 @@ fileActions.move({
     'src/component.vue': `src/${componentName}.vue`
   }
 })
+
+fs.chmodSync(path.join(outDir, 'build.sh'), '755')
 
 logger.success(`Generated into ${kleur.underline(outDir)}`)
