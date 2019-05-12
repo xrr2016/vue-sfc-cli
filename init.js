@@ -38,5 +38,6 @@ fileActions.move({
 })
 
 fs.chmodSync(path.join(outDir, 'build.sh'), '755')
+fs.chmodSync(path.join(outDir, 'notify.sh'), '755')
 
 logger.success(`Generated into ${kleur.underline(outDir)}`)
