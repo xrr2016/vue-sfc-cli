@@ -38,6 +38,20 @@ yarn build
 # Ready to publish!
 ```
 
+## Cli options
+
+### `--test`
+
+用于生成一个测试的组件模板
+
+### `-u, --upgrade`
+
+更新当前组件配置
+
+## Notice
+
+不建议在Windows下生成组件,因为`.sh`可能没有执行权限
+
 ## docs
 
 You can write *.md files host in `docs/` as code example.
