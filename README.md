@@ -87,37 +87,34 @@ module.exports = {
 }
 ```
 
-## file-loader
+## Working with 3rd-party library
 
-We use `file-loader` to handle font files by default.
+e.g. [Element-UI](https://element.eleme.io)
 
-When you use a third-party library that contains font files like
-[Element-UI](https://element.eleme.io),
-you need to install `file-loader`:
+Install element-ui:
 
-```sh
-yarn add file-loader -D
+```console
+yarn add element-ui
 ```
 
-Then you can use Element UI without tears 😭.
+In your `styleguide/element.js`
 
 ```js
-// styleguide/element.js
 import Vue from 'vue'
 import Elm from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css' // <- including font files
-
-Vue.use(Elm)
+import 'element-ui/lib/theme-chalk/index.css'
+ Vue.use(Elm)
 ```
 
+In your `styleguide.config.js`
+
 ```js
-// styleguide.config.js
 module.exports = {
   // ...
   require: [
     './styleguide/element.js'
   ]
-}
+}	
 ```
 
 ## prettier and precommit hook
