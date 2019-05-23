@@ -6,10 +6,11 @@ exports.pascalify = pascalify
 
 exports.kebabcasify = kebabcasify
 
-exports.parseContent = (content, componentName) => {
+exports.parseContent = (content, { componentName, ownerName }) => {
   return content
     .replace(createRegExp('componentNamePascal'), pascalify(componentName))
     .replace(createRegExp('componentName'), kebabcasify(componentName))
+    .replace(createRegExp('ownerName'), ownerName)
     .replace(createRegExp('cliVersion'), require('../package.json').version)
     .replace(createRegExp('licenseYear'), new Date().getFullYear())
 }

@@ -1,12 +1,12 @@
 {
-  "name": "@femessage/{{componentName}}",
+  "name": "@{{ownerName}}/{{componentName}}",
   "version": "1.0.0",
   "description": "",
-  "author": "https://github.com/FEMessage",
+  "author": "https://github.com/{{ownerName}}",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FEMessage/{{componentName}}.git"
+    "url": "https://github.com/{{ownerName}}/{{componentName}}.git"
   },
   "keywords": ["vue", "sfc", "component"],
   "files": ["src", "dist", "yarn.lock"],

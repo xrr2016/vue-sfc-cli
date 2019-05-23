@@ -15,6 +15,8 @@ let pkg = {}
  * Prompt user for input to populate template files
  */
 let npmName
+let ownerName
+const OWNER_NAME = 'femessage'
 
 function isUpgrade() {
   return argv.has('u') || argv.has('upgrade')
@@ -24,17 +26,32 @@ if (isUpgrade()) {
   try {
     pkg = require(path.join(process.cwd(), 'package.json'))
     npmName = pkg.name.replace(/^@[\w]*\//, '')
+    ownerName = pkg.name.replace(/^@([\w]*)\/[\w]*/, '$1')
   } catch {}
 }
 
 if (argv.has('test')) {
   npmName = 'v-test'
+  ownerName = OWNER_NAME
 }
 
+const promptAngle = kleur.dim('> ')
 if (!npmName) {
-  npmName = readline.question(
-    '✍️  What is the npm name of your component? '
+  console.log(
+    'The component name:'
   )
+  npmName = readline.prompt({
+    prompt: promptAngle
+  })
+}
+if (!ownerName) {
+  console.log(
+    `The owner: ${kleur.dim(`(${OWNER_NAME})`)}`
+  )
+  ownerName = readline.prompt({
+    prompt: promptAngle,
+    defaultInput: OWNER_NAME
+  })
 }
 
 const componentName = kebabcasify(npmName)
@@ -44,6 +61,7 @@ const fileActions = new FileActions({
   argv,
   pkg,
   componentName,
+  ownerName,
   outDir,
   templatesDir: path.join(__dirname, 'templates')
 })
