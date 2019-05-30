@@ -19,7 +19,7 @@ module.exports = {
   styleguideDir: 'docs',
   pagePerSection: true,
   ribbon: {
-    url: 'https://github.com/FEMessage/{{componentName}}'
+    url: 'https://github.com/{{ownerName}}/{{componentName}}'
   },
   sections: [
     {
