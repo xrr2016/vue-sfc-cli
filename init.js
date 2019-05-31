@@ -25,8 +25,8 @@ function isUpgrade() {
 if (isUpgrade()) {
   try {
     pkg = require(path.join(process.cwd(), 'package.json'))
-    npmName = pkg.name.replace(/^@[\w]*\//, '')
-    ownerName = pkg.name.replace(/^@([\w]*)\/[\w]*/, '$1')
+    npmName = pkg.name.replace(/^@[\w-]*\//, '')
+    ownerName = pkg.name.replace(/^@([\w-]*)\/[\w-]*/, '$1')
   } catch {}
 }
 
