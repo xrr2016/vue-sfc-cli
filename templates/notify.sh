@@ -13,7 +13,7 @@ curl $url > $resp_tmp_file
 html_url=`cat $resp_tmp_file | sed -n 5p | sed 's/\"html_url\"://g' | awk -F '"' '{print $2}'`
 body=`cat $resp_tmp_file | grep body | sed 's/\"body\"://g;s/\"//g'`
 
-msg='{"msgtype": "markdown", "markdown": {"title": "{{componentName}}更新", "text": "@所有人\n# [componentName]('$html_url')\n'$body'"}}'
+msg='{"msgtype": "markdown", "markdown": {"title": "{{componentName}}更新", "text": "@所有人\n# [{{componentName}}]('$html_url')\n'$body'"}}'
 
 curl -X POST https://oapi.dingtalk.com/robot/send\?access_token\=$DINGTALK_ROBOT_TOKEN -H 'Content-Type: application/json' -d "$msg"
 
