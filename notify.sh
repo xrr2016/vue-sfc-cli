@@ -8,7 +8,7 @@ fi
 url=https://api.github.com/repos/FEMessage/vue-sfc-cli/releases/latest
 resp_tmp_file=resp.tmp
 
-curl $url > $resp_tmp_file
+curl -H "Authorization: token $GITHUB_TOKEN" $url > $resp_tmp_file
 
 html_url=`cat $resp_tmp_file | sed -n 5p | sed 's/\"html_url\"://g' | awk -F '"' '{print $2}'`
 body=`cat $resp_tmp_file | grep body | sed 's/\"body\"://g;s/\"//g'`
