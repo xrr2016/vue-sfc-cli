@@ -1,5 +1,5 @@
 {
-  "name": "@{{ownerName}}/{{componentName}}",
+  "name": "@{{ownerNameLowerCase}}/{{componentName}}",
   "version": "1.0.0",
   "description": "",
   "author": "https://github.com/{{ownerName}}",

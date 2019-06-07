@@ -46,7 +46,17 @@ yarn build
 
 ### `-u, --upgrade`
 
-更新当前组件配置
+更新当前项目基本配置
+
+### `--files`
+
+- Type: `string`
+
+额外更新的文件, 以更新组件为例:
+
+```sh
+npx vue-sfc-cli --upgrade --files package.json
+```
 
 ## Notice
 
