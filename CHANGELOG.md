@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/FEMessage/vue-sfc-cli/compare/v1.9.1...v1.10.0) (2019-06-10)
+
+
+### Bug Fixes
+
+* owner相关错误  ([948e464](https://github.com/FEMessage/vue-sfc-cli/commit/948e464)), closes [#51](https://github.com/FEMessage/vue-sfc-cli/issues/51) [#54](https://github.com/FEMessage/vue-sfc-cli/issues/54)
+
+
+### Features
+
+* add `all-contributors` in templates ([29cf1c4](https://github.com/FEMessage/vue-sfc-cli/commit/29cf1c4))
+
+
+
 ### [1.9.1](https://github.com/FEMessage/vue-sfc-cli/compare/v1.9.0...v1.9.1) (2019-06-03)
 
 
