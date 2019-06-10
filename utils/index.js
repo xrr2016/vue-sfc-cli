@@ -11,6 +11,7 @@ exports.parseContent = (content, { componentName, ownerName }) => {
     .replace(createRegExp('componentNamePascal'), pascalify(componentName))
     .replace(createRegExp('componentName'), kebabcasify(componentName))
     .replace(createRegExp('ownerName'), ownerName)
+    .replace(createRegExp('ownerNameLowerCase'), ownerName.toLowerCase())
     .replace(createRegExp('cliVersion'), require('../package.json').version)
     .replace(createRegExp('licenseYear'), new Date().getFullYear())
 }

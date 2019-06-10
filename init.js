@@ -11,12 +11,13 @@ const fs = require('fs-extra')
 const argv = parseArgs(process.argv.slice(2))
 
 let pkg = {}
+let pkgName = ''
 /**
  * Prompt user for input to populate template files
  */
-let npmName
-let ownerName
-const OWNER_NAME = 'femessage'
+let npmName = argv.get('npm')
+let ownerName = argv.get('owner')
+const OWNER_NAME = 'FEMessage'
 
 function isUpgrade() {
   return argv.has('u') || argv.has('upgrade')
@@ -25,8 +26,7 @@ function isUpgrade() {
 if (isUpgrade()) {
   try {
     pkg = require(path.join(process.cwd(), 'package.json'))
-    npmName = pkg.name.replace(/^@[\w-]*\//, '')
-    ownerName = pkg.name.replace(/^@([\w-]*)\/[\w-]*/, '$1')
+    pkgName = pkg.name.replace(/^@[\w-]*\//, '')
   } catch {}
 }
 
@@ -36,14 +36,17 @@ if (argv.has('test')) {
 }
 
 const promptAngle = kleur.dim('> ')
+
 if (!npmName) {
   console.log(
-    'The component name:'
+    `The component name: ${pkgName ? kleur.dim(`(${pkgName})`) : ''}`
   )
   npmName = readline.prompt({
+    defaultInput: pkgName,
     prompt: promptAngle
   })
 }
+
 if (!ownerName) {
   console.log(
     `The owner: ${kleur.dim(`(${OWNER_NAME})`)}`
